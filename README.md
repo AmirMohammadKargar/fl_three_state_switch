@@ -1,39 +1,78 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## fl_three_state_switch
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+<p align="center">
+  <img src="./example/Screen-2022-08-05-181737.gif" width="30%">
+</p>
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Use this package as a library
 
-## Features
+Add
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+```yaml
+dependencies:
+  fl_three_state_switch: ^0.0.1
+```
+to your pubspec.yaml, and run
+```bash
+$ flutter pub get
+```
+in your project's root directory.
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
+Import in your project:
 ```dart
-const like = 'sample';
+import 'package:fl_three_state_switch/fl_three_state_switch.dart';
 ```
 
-## Additional information
+## Sample Usage
+```dart
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+class _MyHomePageState extends State<MyHomePage> {
+  SwitchState _state = SwitchState.start;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Flutter Three State Switch Demo"),
+      ),
+      body: Center(
+        child:FlThreeStateSwtich(
+          onChanged: (state) {
+            setState(() {
+              _state = state;
+            });
+          },
+          state: _state,
+        ),
+      ),
+    );
+  }
+}
+```
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+### Constructor
+
+| Parameter                 |                       Default                       | Description                                                                                                             |
+| :------------------------ | :-------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------- |
+| disable                 |                             false                        |Disable the Switch                                               |
+| width                      |                     70.0                                | Width of Switch Container |
+| height                       |                   30.0                                  |Height of Switch Container |
+| dotVerticalPadding                  |            2                                         |Vertical Padding of Dot                    |
+| dotHorizontalPadding                    |         1                                      |    Horizontal Padding of Dot                                                                 |
+| borderRadius                     |                  BorderRadius.circular(200) |Border Radius of Switch Container                                                                       |
+| startBackgroundColor            |             SwitchColors.backgroundColor //Color(0xFFd1d1d1) |Switch Container Color in start State                                            |
+| middleBackgroundColor          |    SwitchColors.backgroundColor //Color(0xFFd1d1d1)    |    Switch Container Color in middle State                                 |
+| endBackgroundColor                     |SwitchColors.backgroundColor //Color(0xFFd1d1d1)  |  Switch Container Color in end State                           |
+| dotColor         |SwitchColors.dotColor //Color(0xFFFFFFFF)  |Dot Color      |
+| disableBackgroundColor|SwitchColors.disableBackgroundColor //Color(0xFFbfbfbf)   |Switch Container Color in disable mode                                        |
+| disableDotColor |SwitchColors.disableDotColor //Color(0xFFe3e3e3)            |Dot Color in disable mode                                                                           |
+| child |null                 |You can change Dot with any widget you want but be careful you must handle disable mode of your widget by yourself                                                                       |
+| state              |SwitchState.start                                    |enum type SwitchState -> SwitchState{start,middle,end}                                                                                      |
+| dotShadow       |  [const BoxShadow(color: Colors.black,blurRadius: 10,spreadRadius: -5,)]|Dot shadow                                                            |
+
