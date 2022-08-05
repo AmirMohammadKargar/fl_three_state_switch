@@ -3,6 +3,7 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![pub package](https://img.shields.io/pub/v/fl_three_state_switch.svg)](https://pub.dev/packages/fl_three_state_switch)
 
 <p align="center">
   <img src="./example/Screen-2022-08-05-181737.gif" width="30%">
