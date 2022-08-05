@@ -1,7 +1,7 @@
 name: fl_three_state_switch
 description: Three state switch for Flutter
 version: 0.0.1
-homepage:
+homepage: https://github.com/AmirMohammadKargar/fl_three_state_switch
 
 environment:
   sdk: ">=2.17.6 <3.0.0"
